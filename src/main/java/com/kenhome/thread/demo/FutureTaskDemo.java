@@ -4,7 +4,7 @@ import java.util.concurrent.*;
 
 /**
  * @Author: cmk
- * @Description:
+ * @Description: FutureTask 获取任务结果，阻塞
  * @Date: 2018\7\9 0009 20:49
  */
 public class FutureTaskDemo {
