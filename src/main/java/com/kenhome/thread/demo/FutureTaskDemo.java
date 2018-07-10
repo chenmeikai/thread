@@ -9,6 +9,32 @@ import java.util.concurrent.*;
  */
 public class FutureTaskDemo {
 
-    //通过线程池管理多线程
-    ExecutorService executor = new ThreadPoolExecutor(1,1,5,TimeUnit.MINUTES);
+    public static void main(String[] args) {
+        //通过线程池管理多线程
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(0, 1, 5, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
+
+        FutureTask futureTask =new FutureTask(new Task());
+
+        executor.submit(futureTask);
+
+        try {
+            System.out.println("获取的结果："+futureTask.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class Task implements  Callable<Integer>{
+    @Override
+    public Integer call() throws Exception {
+
+        System.out.println("开启线程");
+        System.out.println("休眠5秒");
+        Thread.sleep(5000);
+        System.out.println("休眠结束");
+        return 5;
+    }
 }
