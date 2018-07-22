@@ -1,6 +1,6 @@
 package com.kenhome.thread;
 
-import com.kenhome.thread.service.AsyncService;
+import com.kenhome.thread.service.ThreadService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.concurrent.Future;
 public class ThreadApplicationTests {
 
     @Autowired
-    private AsyncService asyncService;
+    private ThreadService asyncService;
 
     @Test
     public void contextLoads() {
@@ -36,9 +36,6 @@ public class ThreadApplicationTests {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-
-
-
 
 
     }
