@@ -13,12 +13,12 @@ public class FutureTaskTest2 {
 
     public static void main(String[] args) {
 
-        FutureTask<String> futureTask =new FutureTask<>(new Task());
-        Thread thread =new Thread(futureTask);
+        FutureTask<String> futureTask = new FutureTask<>(new Task());
+        Thread thread = new Thread(futureTask);
         thread.start();
         try {
-           String result = futureTask.get();
-            System.out.println("结果"+result);
+            String result = futureTask.get();
+            System.out.println("结果" + result);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -28,7 +28,7 @@ public class FutureTaskTest2 {
     }
 }
 
-class Task implements Callable{
+class Task implements Callable {
 
     @Override
     public Object call() throws Exception {

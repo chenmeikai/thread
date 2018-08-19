@@ -30,16 +30,20 @@ public class DelayCancelOrder implements Delayed {
         this.expireTime = TimeUnit.MILLISECONDS.convert(expireTime, TimeUnit.DAYS) + createDate.getTime();
     }
 
-    /**获得延迟时间：过期时间-当前时间*/
+    /**
+     * 获得延迟时间：过期时间-当前时间
+     */
     @Override
     public long getDelay(TimeUnit unit) {
-        return expireTime -System.currentTimeMillis();
+        return expireTime - System.currentTimeMillis();
     }
 
-    /**比较延迟队列的内部排序：返回当前时间的延迟时间-比较对象的延迟时间*/
+    /**
+     * 比较延迟队列的内部排序：返回当前时间的延迟时间-比较对象的延迟时间
+     */
     @Override
     public int compareTo(Delayed o) {
-        return this.expireTime.compareTo(((DelayCancelOrder)o).expireTime);
+        return this.expireTime.compareTo(((DelayCancelOrder) o).expireTime);
     }
 
 

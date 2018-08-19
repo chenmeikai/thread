@@ -16,6 +16,7 @@ public interface ThreadService {
 
     /**
      * 异步执行任务
+     *
      * @param: []
      * @return: void
      */
@@ -23,6 +24,7 @@ public interface ThreadService {
 
     /**
      * 异步执行任务
+     *
      * @param: []
      * @return: void
      */
@@ -30,6 +32,7 @@ public interface ThreadService {
 
     /**
      * 执行任务：处理延迟队列中的待取消订单
+     *
      * @param: [orderId]
      * @return: void
      */
@@ -37,6 +40,7 @@ public interface ThreadService {
 
     /**
      * 延迟取消订单
+     *
      * @param: [orderId]
      * @return: void
      */

@@ -12,10 +12,10 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class ExtendThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
     private static final Logger logger = LoggerFactory.getLogger(ExtendThreadPoolTaskExecutor.class);
 
-    private void showThreadPoolInfo(String prefix){
+    private void showThreadPoolInfo(String prefix) {
         ThreadPoolExecutor threadPoolExecutor = getThreadPoolExecutor();
 
-        if(null==threadPoolExecutor){
+        if (null == threadPoolExecutor) {
             return;
         }
         /*打印标记的线程前缀，哪种执行方法，共有任务数，完成了多少任务，在执行中的任务数，队列中的任务数*/

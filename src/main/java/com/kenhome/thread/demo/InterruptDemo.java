@@ -8,8 +8,8 @@ package com.kenhome.thread.demo;
 public class InterruptDemo {
 
     public static void main(String[] args) {
-        Stop stop =new Stop();
-        Thread thread =new Thread(stop);
+        Stop stop = new Stop();
+        Thread thread = new Thread(stop);
         thread.start();
         try {
             Thread.sleep(3000);
@@ -21,19 +21,19 @@ public class InterruptDemo {
 
 }
 
-class Stop implements  Runnable{
+class Stop implements Runnable {
 
     @Override
     public void run() {
 
-        while (true){
-            if(Thread.currentThread().isInterrupted()){
+        while (true) {
+            if (Thread.currentThread().isInterrupted()) {
                 System.out.println("获得中断信号,中断线程");
                 break;
             }
 
             System.out.println("运行中...");
-            System.out.println("此时线程中断状态是"+Thread.currentThread().isInterrupted());
+            System.out.println("此时线程中断状态是" + Thread.currentThread().isInterrupted());
 
             try {
                 Thread.sleep(5000);

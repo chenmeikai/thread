@@ -10,14 +10,14 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class ReadWriteLockDemo {
 
     public static void main(String[] args) {
-        ReentrantReadWriteLock readAndWriteLock =new ReentrantReadWriteLock();
-        String name1="read";
-        ReadTask readTask1 =new ReadTask(name1,readAndWriteLock);
+        ReentrantReadWriteLock readAndWriteLock = new ReentrantReadWriteLock();
+        String name1 = "read";
+        ReadTask readTask1 = new ReadTask(name1, readAndWriteLock);
         Thread thread1 = new Thread(readTask1);
         thread1.start();
 
-        String name2="write";
-        WritTask readTask2 =new WritTask(name2,readAndWriteLock);
+        String name2 = "write";
+        WritTask readTask2 = new WritTask(name2, readAndWriteLock);
         Thread thread2 = new Thread(readTask2);
         thread2.start();
     }
@@ -40,8 +40,8 @@ class ReadTask implements Runnable {
     public void run() {
         try {
             readAndWriteLock.readLock().lock();
-            System.out.println(name+"开始时间:"+System.currentTimeMillis());
-            for (int i = 0; i <20; i++) {
+            System.out.println(name + "开始时间:" + System.currentTimeMillis());
+            for (int i = 0; i < 20; i++) {
                 System.out.println(name + ":" + i);
                 try {
                     Thread.sleep(20);
@@ -49,7 +49,7 @@ class ReadTask implements Runnable {
                     e.printStackTrace();
                 }
             }
-            System.out.println(name+"结束时间:"+System.currentTimeMillis());
+            System.out.println(name + "结束时间:" + System.currentTimeMillis());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -72,8 +72,8 @@ class WritTask implements Runnable {
     public void run() {
         try {
             readAndWriteLock.writeLock().lock();
-            System.out.println(name+"开始时间:"+System.currentTimeMillis());
-            for (int i = 0; i <20; i++) {
+            System.out.println(name + "开始时间:" + System.currentTimeMillis());
+            for (int i = 0; i < 20; i++) {
                 System.out.println(name + ":" + i);
                 try {
                     Thread.sleep(20);
@@ -81,7 +81,7 @@ class WritTask implements Runnable {
                     e.printStackTrace();
                 }
             }
-            System.out.println(name+"结束时间:"+System.currentTimeMillis());
+            System.out.println(name + "结束时间:" + System.currentTimeMillis());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

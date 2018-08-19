@@ -21,7 +21,7 @@ import java.util.concurrent.DelayQueue;
 @Component
 public class CancelOrderStart implements CommandLineRunner {
 
-    Logger log =LoggerFactory.getLogger(CancelOrderStart.class);
+    Logger log = LoggerFactory.getLogger(CancelOrderStart.class);
 
     @Autowired
     ThreadService threadService;
@@ -29,20 +29,19 @@ public class CancelOrderStart implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        DelayQueue<DelayCancelOrder>  delayQueue=new DelayQueue<>();
-       
-        List<Order> orders =new ArrayList<>();
+        DelayQueue<DelayCancelOrder> delayQueue = new DelayQueue<>();
+
+        List<Order> orders = new ArrayList<>();
 
         /**
          * TODO 项目启动时查询出等待付款的订单集合orders ，加入延迟取消队列中
          */
-        for(Order order :orders){
-            DelayCancelOrder delayCancelOrder =new DelayCancelOrder(order.getOrderId(),7L,order.getCreateDate());
+        for (Order order : orders) {
+            DelayCancelOrder delayCancelOrder = new DelayCancelOrder(order.getOrderId(), 7L, order.getCreateDate());
             delayQueue.add(delayCancelOrder);
         }
-        log.info("启动延迟取消队列处理订单数为{}",delayQueue.size());
+        log.info("启动延迟取消队列处理订单数为{}", delayQueue.size());
 
         threadService.excuteCancelOrder(delayQueue);
-
     }
 }

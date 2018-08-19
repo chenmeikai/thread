@@ -8,6 +8,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.Executor;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
@@ -46,6 +47,11 @@ public class ExecutorConfig {
     }
 
 
+    /**
+     * @Description 单例线程
+     * @param
+     * @return java.util.concurrent.Executor
+     */
     @Bean
     public Executor singleServiceExecutor() {
         logger.info("start singleServiceExecutor");
@@ -69,4 +75,17 @@ public class ExecutorConfig {
 
         return executor;
     }
+
+    /**
+     * @Description 定时任务
+     * @param
+     * @return java.util.concurrent.ScheduledThreadPoolExecutor
+     */
+    @Bean
+    public ScheduledThreadPoolExecutor scheduledThreadPoolExecutor(){
+        ScheduledThreadPoolExecutor  scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1);
+        return  scheduledThreadPoolExecutor;
+    }
+
+
 }

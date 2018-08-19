@@ -16,13 +16,13 @@ public class FutureTaskTest {
 
         FutureDemo task = new FutureDemo();
 
-        Future<Integer> future =es.submit(task);
+        Future<Integer> future = es.submit(task);
 
         es.shutdown();
 
         try {
-            int result =future.get();
-            System.out.println("等待线程获得："+result);
+            int result = future.get();
+            System.out.println("等待线程获得：" + result);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

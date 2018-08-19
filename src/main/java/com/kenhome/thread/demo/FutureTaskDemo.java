@@ -13,12 +13,12 @@ public class FutureTaskDemo {
         //通过线程池管理多线程
         ThreadPoolExecutor executor = new ThreadPoolExecutor(0, 1, 5, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
 
-        FutureTask futureTask =new FutureTask(new Task());
+        FutureTask futureTask = new FutureTask(new Task());
 
         executor.submit(futureTask);
 
         try {
-            System.out.println("获取的结果："+futureTask.get());
+            System.out.println("获取的结果：" + futureTask.get());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -27,7 +27,7 @@ public class FutureTaskDemo {
     }
 }
 
-class Task implements  Callable<Integer>{
+class Task implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
 

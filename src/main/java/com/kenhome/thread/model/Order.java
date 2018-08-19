@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * @Description: 订单
  * @Date: 2018\7\21 0021 22:10
  */
-public class Order  {
+public class Order {
 
     //订单id
     private Long orderId;

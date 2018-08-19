@@ -27,10 +27,10 @@ public class ThreadApplicationTests {
 
         try {
             System.out.println("获得结果中.......");
-            Map<String,Object> resultMap =result.get();
+            Map<String, Object> resultMap = result.get();
             System.out.println("获得结果");
             int code = (int) resultMap.get("code");
-            System.out.println("code是："+code);
+            System.out.println("code是：" + code);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
