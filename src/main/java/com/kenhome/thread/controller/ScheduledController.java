@@ -31,7 +31,7 @@ public class ScheduledController {
 
     @GetMapping("start")
     public String start(String threadName,String message){
-        System.out.println("开启定时任务.....");
+        System.out.println("开启定时任务....."); 
 
 
         //查看该线程是否运行中
