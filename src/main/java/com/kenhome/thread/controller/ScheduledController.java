@@ -76,7 +76,7 @@ public class ScheduledController {
         scheduledFuture.cancel(true);
         scheduledFutureMap.remove(threadName);
 
-        return  "success";
+        return  "success"; 
     }
 
 
