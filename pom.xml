@@ -5,7 +5,7 @@
 
     <groupId>com.kenhome</groupId>
     <artifactId>thread</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>thread</name>
